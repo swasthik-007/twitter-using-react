@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 const InitialDummyTweets=[
-    {id:0 , content: ' we have a new twitter called as threads', likeCount: 3,createdAt: new Date() },
+    {id:0 , content: ' we have a new twitter called as threads', likeCount: 3,createdAt: new Date()  },
     {id:1 , content: ' what should we post??', likeCount: 4 ,createdAt: new Date()},
     {id:2 , content: ' what is up with the tech-community? ', likeCount: 5 ,createdAt: new Date()}
   ];
@@ -28,10 +28,24 @@ function Twitter(){
         }]);
     }
    
+const handleEditTweet=(tweet)=>{//this incoming tweet is the updated tweet
+    setTweets(
+        tweets.map((currentTweet)=>{
+            if(currentTweet.id==tweet.id){
+                return tweet;
+            }
+            else {
+                return currentTweet;
+            }
+        })
+      )
+}
+
+
     return (
         <>
         <AddTweet  onAddTweet={handleAddTweet} />
-          <TweetList  tweets={tweets}/>
+          <TweetList  tweets={tweets} onEditTweet={handleEditTweet} />
         </>
       );
 }
