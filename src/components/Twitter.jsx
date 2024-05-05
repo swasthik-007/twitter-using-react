@@ -41,11 +41,18 @@ const handleEditTweet=(tweet)=>{//this incoming tweet is the updated tweet
       )
 }
 
+const sortTweets =() =>{
+  tweets.sort((t1,t2)=> t2.createdAt.getTime()-t1.createdAt.getTime());
+  setTweets([...tweets]);
+}
 
     return (
         <>
         <AddTweet  onAddTweet={handleAddTweet} />
-          <TweetList  tweets={tweets} onEditTweet={handleEditTweet} />
+        <button onClick={sortTweets}>
+          Sort Tweets
+        </button>
+        <TweetList  tweets={tweets} onEditTweet={handleEditTweet} />
         </>
       );
 }
