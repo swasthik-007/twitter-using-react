@@ -12,7 +12,7 @@ function Tweet({tweetId,content,likeCount,createdAt,onEdit}){
                 <input 
                  type="text"
                  value={content}
-                 onChange={(e)=>{
+                 onChange={(e) => {
                     onEdit({
                         id:tweetId,
                         content:e.target.value,

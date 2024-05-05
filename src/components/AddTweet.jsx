@@ -10,8 +10,8 @@ function AddTweet({ onAddTweet  }){
             onChange={ (e)=> setText(e.target.value)}
             />
             <button onClick={ ()=>{
-                onAddTweet(text)
                 setText('');
+                onAddTweet(text)
             }}>
                 Tweet !!
             </button>

@@ -1,6 +1,8 @@
 import Tweet from "./Tweet";
+import { memo } from 'react';
 import '../CSS/TweetList.css'
 
+const MemoisedTweet=memo(Tweet);
 
 function TweetList({tweets,onEditTweet}){
 
@@ -9,7 +11,7 @@ function TweetList({tweets,onEditTweet}){
             {
                 tweets.map((tweet)=>(
                     <li className="tweet-like-wrapper" key={tweet.id}>
-                        <Tweet 
+                        < MemoisedTweet 
                         tweetId={tweet.id}
                         content={tweet.content} 
                         likeCount={tweet.likeCount} 
